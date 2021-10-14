@@ -29,15 +29,36 @@ def pwned_api_check(password):
     return get_password_leaks_count(response.text, tail)
 
 
-def main(args):
-    for password in args:
-        count = pwned_api_check(password)
-        if count:
-            print(f'{password} was found {count} times... you should change your password!')
-        else:
-            print(f'{password} was NOT found! carry on.')
+# def main(args):
+#     for password in args:
+#         count = pwned_api_check(password)
+#         if count:
+#             print(f'{password} was found {count} times... you should change your password!')
+#         else:
+#             print(f'{password} was NOT found! carry on.')
+#     return 'done'
+
+def main():
+    password = input("Please enter your password: ")
+    count = pwned_api_check(password)
+    if count:
+        print(f'{password} was found {count} times... you should change your password!')
+    else:
+       print(f'{password} was NOT found! carry on.')
+
     return 'done'
 
 
+def keep_going():
+    flag = input("Enter x to exit: ")
+
+    if flag == "x" or flag == "X":
+        return
+
+    keep_going()
+
+
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    # main(sys.argv[1:])
+    main()
+    keep_going()
