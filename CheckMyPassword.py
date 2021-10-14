@@ -49,16 +49,22 @@ def main():
     return 'done'
 
 
-def keep_going():
-    flag = input("Enter x to exit: ")
+# def keep_going():
+#     flag = input("Enter x to exit: ")
+#
+#     if flag == "x" or flag == "X":
+#         return
+#
+#     keep_going()
 
-    if flag == "x" or flag == "X":
-        return
 
-    keep_going()
+def exit_func():
+    print("Press ctrl + c to exit: ")
+    while True:
+        pass
 
 
 if __name__ == '__main__':
     # main(sys.argv[1:])
     main()
-    keep_going()
+    exit_func()
